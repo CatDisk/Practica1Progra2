@@ -27,14 +27,13 @@ int main() {
 			cout << "[3] Registrar un transporte en una posicion" << endl;
 			cout << "[4] Eliminar un transporte en una posicion" << endl;
 			cout << "[5] Eliminar todos los transportes de un modelo" << endl;
-			cout << "[6] Registrar un transporte al inicio" << endl;
-			cout << "[7] Buscar un transporte segun el año" << endl;
-			cout << "[8] Imprimir reportes" << endl;
+			cout << "[6] Buscar un transporte segun el año" << endl;
+			cout << "[7] Imprimir reportes" << endl;
 			cout << "[0] Salir del programa" << endl;
 			cout << "===========================================" << endl;
 			cout << "Ingrese la operacion deseada: ";
 			cin >> op;
-		} while (op < 0 || op > 8);
+		} while (op < 0 || op > 7);
 		if (op >= 1 && op <= 3)
 		{
 			modelo = new char[20];
@@ -77,6 +76,33 @@ int main() {
 		}
 		switch (op)
 		{
+		case 1:
+			if (tipo == 1)
+				oArreglo->insertarElemento(modelo, color, annio, seguro, lunasPolarizadas, llantas, motor, NULL, 0);
+			else
+				oArreglo->insertarElemento(modelo, color, annio, seguro, lunasPolarizadas, NULL, NULL, asientos, 0);
+			break;
+		case 2:
+			if (tipo == 1)
+				oArreglo->insertarElemento(modelo, color, annio, seguro, lunasPolarizadas, llantas, motor, NULL, oArreglo->getCap());
+			else
+				oArreglo->insertarElemento(modelo, color, annio, seguro, lunasPolarizadas, NULL, NULL, asientos, oArreglo->getCap());
+			break;
+		case 3:
+			cout << "===========================================" << endl;
+			cout << "Ingrese la posicion deseada (de 0 a " << oArreglo->getCap() << "): ";
+			cin >> pos;
+			if (tipo == 1)
+				oArreglo->insertarElemento(modelo, color, annio, seguro, lunasPolarizadas, llantas, motor, NULL, pos);
+			else
+				oArreglo->insertarElemento(modelo, color, annio, seguro, lunasPolarizadas, NULL, NULL, asientos, pos);
+			break;
+		case 4:
+			cout << "===========================================" << endl;
+			cout << "Ingrese la posicion deseada (de 0 a " << oArreglo->getCap() - 1 << "): ";
+			cin >> pos;
+			oArreglo->eliminarElemento(pos);
+			break;
 		default:
 			break;
 		}
