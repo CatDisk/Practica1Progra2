@@ -1,7 +1,7 @@
 #pragma once
 #include "Transporte.h"
 
-class CBus :CTransporte {
+class CBus :public CTransporte {
 private:
 	int asientos;
 public:
