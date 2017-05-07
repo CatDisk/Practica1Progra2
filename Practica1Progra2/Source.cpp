@@ -16,6 +16,7 @@ int main() {
 	int op;
 	int pos;
 	int tipo;
+	bool elementoEliminado;
 
 	do
 	{
@@ -102,6 +103,50 @@ int main() {
 			cout << "Ingrese la posicion deseada (de 0 a " << oArreglo->getCap() - 1 << "): ";
 			cin >> pos;
 			oArreglo->eliminarElemento(pos);
+			break;
+		case 5:
+			/*
+			modelo = new char[20];
+			cin.ignore();
+			cout << "===========================================" << endl;
+			cout << "Ingrese el modelo de transporte que desea eliminar: ";
+			cin.getline(modelo, 20);
+			do
+			{
+				elementoEliminado = false;
+				int i = 0;
+				do
+				{
+					char* modelo1 = oArreglo->getElemento(i)->getModelo();
+					if (strcmp(modelo, modelo1) == 0)
+					{
+						oArreglo->eliminarElemento(i);
+						elementoEliminado = true;
+					}
+					else
+						i++;
+				} while (!elementoEliminado || i < oArreglo->getCap());
+			} while (elementoEliminado);
+			cout << "Todos los transportes del modelo \"" << modelo << "\" fueron eliminados!" << endl;
+			*/
+			break;
+		case 6:
+			cout << "===========================================" << endl;
+			cout << "Ingrese el año de fabricacion del transporte: ";
+			cin >> annio;
+			for (int i = 0; i < oArreglo->getCap(); i++)
+			{
+				if (oArreglo->getElemento(i)->getAnnio() == annio)
+				{
+					cout << "===========================================" << endl;
+					cout << "Transporte numero: " << i << endl;
+					cout << "Modelo: " << oArreglo->getElemento(i)->getModelo() << endl;
+					cout << "Color: " << oArreglo->getElemento(i)->getColor() << endl;
+					cout << "Precio: " << oArreglo->getElemento(i)->calcularPrecio() << endl;
+				}
+			}
+			break;
+		case 7:
 			break;
 		default:
 			break;
